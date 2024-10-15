@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa IMC</title>
+</head>
+<body>
+    <script>
+        function pulalinha() {
+            document.write('<br>');
+        }
+
+        function mostrar(texto) {
+            document.write(texto);
+            pulalinha();
+        }
+
+        function calculaIMC(altura, peso) {
+            return peso / (altura * altura);
+        }
+
+        let nome = prompt('Qual é seu nome?');
+        let alturaInformada = parseFloat(prompt(`${nome}, você poderia me informar sua altura (use ponto, não vírgula)?`));
+        let pesoInformado = parseFloat(prompt(`${nome}, você poderia informar seu peso?`));
+
+        let imc = calculaIMC(alturaInformada, pesoInformado);
+        mostrar(`O IMC de ${nome} é: ${imc.toFixed(2)}`); // Arredondar para duas casas decimais
+
+        if (imc < 18.5) {
+            mostrar(`${nome}, seu IMC está abaixo do normal.`);
+        } else if (imc > 25) {
+            mostrar(`${nome}, seu IMC está acima do normal.`);
+        } else {
+            mostrar(`${nome}, seu IMC está normal.`);
+        }
+    </script>
+</body>
+</html>
